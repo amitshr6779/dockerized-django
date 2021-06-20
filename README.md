@@ -17,3 +17,6 @@
 
 Note: 
 In entrypoint.sh file  make  python manage.py  migrate comment
+
+For more details refer to:
+https://github.com/chirayurathi/payroll_management_system
