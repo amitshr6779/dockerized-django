@@ -1,0 +1,29 @@
+version: '3'
+services: 
+   db:
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+       MYSQL_DATABASE: 'payrolldb'
+       MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - ./SQL:/docker-entrypoint-initbd.d/:ro
+
+   web:
+    build: .
+    command: bash -c "
+        python manage.py makemigrations
+        && python manage.py migrate
+        && python populate_user.py
+        && python manage.py runserver 0.0.0.0:8000
+        "
+    volumes:
+      - .:/django
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "8000:8000"
+ 
