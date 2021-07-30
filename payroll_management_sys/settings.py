@@ -83,6 +83,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'root',
+	'OPTIONS': {'ssl_mode': 'DISABLED'},
     }
 }
 

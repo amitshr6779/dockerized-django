@@ -1,5 +1,6 @@
 #!/bin/bash
-python manage.py makemigrations
+python3 manage.py makemigrations
 #python manage.py migrate
 #python populate_user.py
-python manage.py runserver 0.0.0.0:8000
+cavagent run python3 manage.py runserver 0.0.0.0:8000
+#python3 manage.py  runserver 0.0.0.0:8000
