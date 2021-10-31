@@ -83,6 +83,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'root',
+        "connect_timeout": 180,
 #	'OPTIONS': {'ssl_mode': 'DISABLED' },
     }
 }
