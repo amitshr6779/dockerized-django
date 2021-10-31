@@ -23,7 +23,7 @@ AUTH_USER_MODEL = 'payroll_manager.Account'
 SECRET_KEY = 'f2zx8*lb*em*-*b+!&1lpp&$_9q9kmkar+l3x90do@s(+sr&x7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0','*']
 
@@ -83,7 +83,7 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'root',
-	'OPTIONS': {'ssl_mode': 'DISABLED'},
+#	'OPTIONS': {'ssl_mode': 'DISABLED' },
     }
 }
 

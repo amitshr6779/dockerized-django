@@ -1,0 +1,25 @@
+FROM ubuntu:20.04
+RUN apt-get -y update
+
+RUN echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >>  /etc/apt/sources.list
+RUN apt update && apt-cache policy libssl1.0-dev
+RUN apt-get install libssl1.0-dev -y
+
+
+RUN apt-get install python3 -y
+RUN apt-get install python3-pip -y
+RUN apt install unzip -y
+RUN apt-get install python3-dev default-libmysqlclient-dev build-essential -y
+#RUN echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >>  /etc/apt/sources.list
+#RUN apt update && apt-cache policy libssl1.0-dev
+#RUN apt-get install libssl1.0-dev -y
+WORKDIR /opt/cavisson/netdiagnostics
+ADD netdiagnostics.4.6.1.53.tar.gz .
+COPY ndsettings.conf /opt/cavisson/netdiagnostics/config 
+WORKDIR /django
+ADD ./ /django
+RUN pip install -r requirements.txt
+RUN bash install.sh python3
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["bash", "entrypoint.sh"]
+
